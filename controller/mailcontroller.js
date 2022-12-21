@@ -13,10 +13,10 @@ exports.sendMail=(req, res)=>{
     })
 
     var message = {
-        from:process.env.EMAIL,
-        to:userMail,
+        from:userMail,
+        to:process.env.EMAIL,
         subject: "This is a test",
-        text:msj
+        text:userMsj
     };
 
     transporter.sendMail(message, (err, info) => {
