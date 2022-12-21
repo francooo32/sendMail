@@ -4,7 +4,7 @@ const app=express();
 const bodyParser=require('body-parser')
 const cors=require('cors')
 
-const Mail=requiere('./routes/mailroute')
+const Mail=require('./routes/mailroute')
 
 const port = process.env.PORT;
 
