@@ -5,10 +5,14 @@ exports.sendMail=(req, res)=>{
     let userMail = req.body.email;
     let userMsj = req.body.msj;
     let fileBase64 = req.body.base64
-
-    const attachments = fileBase64.map((base64)=>{
-        return { path: base64 };
-      });
+    let attachments = "";
+    if(fileBase64 != null){
+        attachments = fileBase64.map((base64)=>{
+            return { path: base64 };
+        });
+    }else{
+        attachments = [{ path: base64 }];
+    }
 
     let transporter = nodeMailer.createTransport({
         service:'gmail',
