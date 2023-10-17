@@ -8,12 +8,12 @@ exports.sendMail=(req, res)=>{
     let fileBase64 = req.body?.base64
     let userCarData = req.body?.carDataForm
     let attachments = "";
-    if(fileBase64 != null){
+    if(fileBase64 != undefined && fileBase64 != null){
         attachments = fileBase64.map((base64)=>{
             return { path: base64 };
         });
     }else{
-        attachments = [{ path: base64 }];
+        attachments = ""
     }
 
     let transporter = nodeMailer.createTransport({
